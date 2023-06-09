@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useState } from "react";
+import CheckboxGroup from "./CheckboxGroup";
+import Checkbox from "./CheckBox";
 
 function App() {
+  const [skill, setSkill] = useState([","]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="grid">
+      <article>
+        <header>
+          <h3>체크박스 그룹</h3>
+        </header>
+        <CheckboxGroup
+          label="Skill"
+          values={skill}
+          onChange={setSkill}
         >
-          Learn React
-        </a>
-      </header>
+          <Checkbox value="Java">Java</Checkbox>
+          <Checkbox value="Python">Python</Checkbox>
+          <Checkbox value="C">C</Checkbox>
+          <Checkbox value="C#">C#</Checkbox>
+          <Checkbox value="C++">C++</Checkbox>
+          <Checkbox value="Javascript">Javascript</Checkbox>
+        </CheckboxGroup>
+        <div>[{skill} ]</div>
+      </article>
     </div>
   );
 }
